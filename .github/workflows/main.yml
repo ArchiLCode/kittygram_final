@@ -156,6 +156,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             cd kittygram
             sudo docker-compose -f docker-compose.production.yml pull
             sudo docker-compose -f docker-compose.production.yml down
